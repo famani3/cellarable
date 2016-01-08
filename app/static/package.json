@@ -1,0 +1,11 @@
+{
+  "name": "cellarable",
+  "version": "0.0.0",
+  "description": "Keeping track of what is in your cellar",
+  "main": "index.js",
+  "author": "Faried Amani",
+  "license": "ISC",
+  "devDependencies": {
+    "tsd": "^0.6.5"
+  }
+}
