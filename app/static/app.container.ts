@@ -1,12 +1,26 @@
-import { Component } from 'angular2/core'
-
-let temp: string = 'Testing this crap'
+import { Component, OnInit } from 'angular2/core';
+import { User } from './user';
+import { UserService } from './user.service';
+import 'static/node_modules/rxjs/add/operator/map'
 
 @Component({
   selector: 'my-app',
-  template: '<h1>{{title}}</h1>'
+  template: '<h1>{{title}}</h1><div>{{currentUser.username}}</div>',
+  providers: [UserService]
 })
-export class AppComp {
-  public title = temp
+
+export class AppComp implements OnInit {
+  public title: string = 'Cellarable';
+  public currentUser: User;
+
+  constructor(private _userService: UserService) { }
+
+  getUser() {
+    this._userService.getUser().suscribe(user => this.currentUser = user.json());
+  }
+
+  ngOnInit() {
+    this.getUser()
+  }
 }
 

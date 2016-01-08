@@ -19,16 +19,21 @@
     <!-- <script src="//cdnjs.clouldflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script> -->
     <script src="https://code.angularjs.org/tools/system.js"></script>
     <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/http.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/router.dev.js"></script>
     <script>
       System.config({
         transpiler: 'typescript',
         typescriptOptions: { emitDecoratorMetadata: true },
-        packages: { 'static': { defaultExtension: 'ts' } }
+        packages: {
+          'static': { defaultExtension: 'ts' }
+        },
       })
-      System.import('static/boot').then(null, console.error.bind(console))
+
+      System.import('static/boot.ts').then(null, console.error.bind(console))
     </script>
     <my-app>Loading...</my-app>
   </body>
