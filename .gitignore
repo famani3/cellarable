@@ -1,4 +1,5 @@
 *.pyc
 venv
+test
 node_modules
 typings
