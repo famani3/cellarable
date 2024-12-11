@@ -8,7 +8,7 @@ ARG BUILD_TYPE
 RUN apk add --no-cache shadow linux-headers make  postgresql-dev
 RUN useradd --user-group --create-home --home-dir /flask --shell /bin/false flask
 
-WORKDIR /flask/src
+WORKDIR /
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
@@ -16,8 +16,11 @@ FROM base as build_lxml
 
 # pre-building wheels to reuse them on other stages and keep cached
 COPY ./requirements.txt requirements.txt
+COPY ./entrypoint.sh entrypoint.sh
+RUN chmod 755 entrypoint.sh
 
 RUN mkdir /flask/heavy_wheels
 RUN pip  install -r requirements.txt 
-ENTRYPOINT [ "entrypoint.sh" ]
+
+ENTRYPOINT [ "python", "app.py" ]
 
