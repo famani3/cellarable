@@ -1,0 +1,15 @@
+---
+version: '3.7'
+
+services:
+  teamcity: 
+    image: "teamcity-test"
+    expose:
+      - 5050
+    environment:
+      SECRET_KEY: ${FLASK_SECRET_KEY}
+      SESSION_COOKIE_SECURE: ${FLASK_SESSION_COOKIE_SECURE}
+      FLASK_DATABASE_HOST: ${FLASK_DATABASE_HOST}
+      FLASK_DATABASE_PORT: ${FLASK_DATABASE_PORT}
+      FLASK_DATABASE_USER: ${FLASK_DATABASE_USER}
+      FLASK_DATABASE_PASSWORD: ${FLASK_DATABASE_PASSWORD}
