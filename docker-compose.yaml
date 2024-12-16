@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   teamcity: 
-    image: "teamcity-test"
+    image: "famani3/teamcity-test"
     expose:
       - 5050
     env_file:
